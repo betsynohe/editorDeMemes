@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aplicacion para editar y generar memes.">
+    <meta name="keywords" content="Generadorde memes, editor de memes, front end, desarrolladora web, diseño de paginas web, programadora, html, css, javascript, desarrollo front end, programación, diseño web.">
+    <!-- link para el estilo de letras -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <!--link para iconos-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@master/devicon.min.css">
+    <!--link font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+<!-- link del estilo de css -->
+    <link rel="stylesheet" href="./style/style.css">
+<!-- titulo e icono de pestaña -->
+    <link rel="icon" href="./img/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
+    <title>Editor de Memes</title>
+</head>
+<body>
+<!-- COMIENZO DEL HEADER -->
+<header>
+    <h1>Generador de Memes</h1>
+<!-- Navbar -->
+    <nav class="nav__container">
+    <!-- BOTON DE IMAGEN -->
+        <button id="btn__img" class="btn__nav focus hover btn__transition">
+            <i class="fa-regular fa-file-image"></i>
+            Imagen
+        </button>
+    <!-- BOTON DE TEXTO -->
+        <button id="btn__text" class="btn__nav focus hover btn__transition">
+            <i class="fa-solid fa-font"></i>
+            Texto
+        </button>
+    <!-- BOTONES DE MODO -->
+        <button id="btn__dark" class="btn__nav focus hover btn__transition hidden">
+            <i class="fa-solid fa-lightbulb"></i>
+            Modo oscuro
+        </button>
+        <button id="btn__light" class="btn__nav focus hover btn__transition">
+            <i class="fa-regular fa-lightbulb"></i>
+            Modo claro
+        </button>
+    </nav>
+</header>
+<!-- ____________________________ COMIENZO DEL MAIN ___________________-->
+<main class="container">
+    <!-----------------CONTENEDOR DEL EDITOR -->
+    <section class="container__memes__edit">
+        <!------------ TEXTO SUPERIOR -->
+        <p class="text__editor top__text">TOP TEXT</p>
+        <!-------------URL DE LA IMAGEN -->
+        <figure id="image__meme">
+        </figure>
+        <!-------------TEXTO INFERIOR -->
+        <p class="text__editor bottom__text">BOTTOM TEXT</p>
+    </section>
+    <!----------------- BOTON DE DESCARGA -->
+    <button id="button__download" class="btn__transition">
+        <i class="fa-solid fa-download"></i>
+        Descargar meme
+    </button>
+</main>
+    <!-- _________________________________ ASIDE - PANEL DE IMAGEN ______________________________ -->
+    <aside class="panels hidden image__panel">
+        <!--------------------------- BOTON X (CERRAR) - PANEL DE IMAGEN -->
+        <button class="btn__panel--close btn__transition btn__image__panel--close">
+            <i class="fas fa-times hover" aria-hidden="true"></i>
+        </button>
+        <section>
+            <!-------------------------------- SUB-TITULO IMAGEN -->
+            <h2 class="second__title">imagen</h2>
+            <!-------------------------------- URL -->
+            <h3 class="third__title">url</h3>
+            <input type="text" placeholder="Copiar dirección de imagen" name="Uniform Resource Locator" class="input__get focus hover transition" id="url__image">
+            <!------------------------------------ FONDO -->
+            <h3 class="third__title">fondo</h3>
+            <section id="container__background">
+                <button>
+                    <input type="color" name="background color" id="btn__bgimagen" class="btn__transition" value="#FFFFFF">
+                    <span id="bgimagen__span">#FFFFFF</span>
+                </button>
+                <!--------------------------- SELECCION DE FONDO -->
+                <select name="filter selector" id="select__bg" class="bg__select focus hover transition">
+                    <option value="unset" id="unset">Ninguno</option>
+                    <option value="lighten" id="lighten">Aclarar</option>
+                    <option value="darken" id="darken">Oscurecer</option>
+                    <option value="difference" id="difference">Diferencia</option>
+                    <option value="luminosity" id="luminosity">Luminosidad</option>
+                    <option value="multiply" id="multiply">Multiplicar</option>
+                </select>
+            </section>
+            <!-- ___________________________ FILTROS ____________________________ -->
+            <section>
+                <h3 class="third__title">filtros</h3>
+                <!------------------------------ BRILLO -->
+                <article class="filter">
+                    <label for="">brillo</label>
+                    <input type="range" name="brightness" class="glow range" value="1" min="0" max="1" step="0.1">
+                </article>
+                <!------------------------------- OPACIDAD -->
+                <article class="filter">
+                    <label for="">opacidad</label>
+                    <input type="range" name="opacity" class="opacity range" value="1" min="0" max="1" step="0.1">
+                </article>
+                <!--------------------------- CONTRASTE -->
+                <article class="filter">
+                    <label for="">contraste</label>
+                    <input type="range" name="contrast" class="contrast range"   value="100" min="100" max="1000">
+                </article>
+                <!-------------------------- DESENFOQUE -->
+                <article class="filter">
+                    <label for="">desenfoque</label>
+                    <input type="range" name="blur" class="blur range"  value="0" min="0" max="10" step="0.1">
+                </article>
+                <!---------------------------- ESCALA DE GRISES -->
+                <article class="filter">
+                    <label for="">escala de grises</label>
+                    <input type="range" name="grayscale" class="grayscale range" value="0" min="0" max="100">
+                </article>
+                <!--------------------------------- SEPIA -->
+                <article class="filter">
+                    <label for="">sepia</label>
+                    <input type="range" name="sepia" class="sepia range" value="0" min="0" max="100">
+                </article>
+                <!---------------------------------- MATIZ -->
+                <article class="filter">
+                    <label for="">hue</label>
+                    <input type="range" name="hue" class="hue range" value="0" min="0" max="369">
+                </article>
+                <!--------------------------------- SATURACION -->
+                <article class="filter">
+                    <label for="">saturado</label>
+                    <input type="range" name="crowded" class="crowded range" value="0" min="100" max="1000">
+                </article>
+                <!------------------------------ NEGATIVO -->
+                <article class="filter">
+                    <label for="">negativo</label>
+                    <input type="range" name="negative" class="negative range" value="0" min="0" max="100">
+                </article>
+                <!---------------------------- BOTON DE RESETEO -->
+                <button type="reset" class="focus hover btn__transition btn__reset__filters">
+                    Reestablecer filtros
+                </button>
+            </section>
+        </section>
+    </aside>
+    <!--______________________________________ ASIDE - PANEL DEL TEXTO _______________-->
+    <aside class="panels hidden text__panel">
+        <!-------------------------------- BOTON X (CERRAR) - PANEL TEXTO -->
+        <button class="btn__panel--close btn__transition btn__text__panel--close">
+            <i class="fas fa-times hover" aria-hidden="true"></i>
+        </button>
+        <!--------------------------------SUB-TITULO TEXTO -->
+        <h2 class="second__title">texto</h2>
+        <!---------------------------------EDITAR EL TEXTO SUPERIOR -->
+        <h3 class="third__title">superior</h3>
+        <input type="text" name="top text editor" id="input__text__top" class="input__get focus hover transition">
+        <input type="checkbox" name="checkbox" id="check__text__top">
+        <label for="" class="label__size">Sin texto superior</label>
+        <!--------------------------------- EDITAR EL TEXTO INFERIOR -->
+        <h3 class="third__title">inferior</h3>
+        <input type="text" name="bottom text editor" id="input__text__bottom" class="input__get focus hover transition">
+        <input type="checkbox" name="checkbox" id="check__text__bottom">
+        <label class="label__size">Sin texto inferior</label>
+        <!--_____________________________ FUENTES __________________-->
+        <section>
+            <h3 class="third__title">fuente</h3>
+            <select name="font family" class="font__select focus hover transition select__font">
+                <option value="Arial">Arial</option>
+                <option value="Arial Black">Arial Black</option>
+                <option value="American Typewrite">American Typewrite</option>
+                <option value="Andale Mono">Andale Mono</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
+                <option value="Helvetica">Helvetica</option>
+                <option value="Impact" selected>Impact</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Times New Roman">Times New Roman</option>
+            </select>
+        <!-------------------------- BOTONES DE FUENTE (TAMAÑO, DERECHA, CENTRADO, IZQUIERDA) -->
+            <section class="font__size">
+                <input type="number" name="number" class="size focus hover transition" value="40">
+                <button class="btn__size left focus hover btn__transition">
+                    <i class="fas fa-align-left" aria-hidden="true"></i>
+                </button>
+                <button class="center btn__size focus hover btn__transition">
+                    <i class="fas fa-align-center" aria-hidden="true"></i>
+                </button>
+                <button class="right btn__size focus hover btn__transition">
+                    <i class="fas fa-align-right" aria-hidden="true"></i>
+                </button>
+            </section>
+            <!------------------------------- COLOR DE LAS LETRAS -->
+            <section class="container__font">
+                <article id="text__color">
+                    <h3 class="third__title">color</h3>
+                    <button>
+                        <input type="color" name="color text" id="color__text" value="#000000">
+                        <span id="color__text__span">#000000</span>
+                    </button>
+                </article>
+                <!----------------------------- FONDO DE LAS LETRAS-->
+                <article id="font__color">
+                    <h3 class="third__title">fondo</h3>
+                    <button>
+                        <input type="color" name="background text" id="bg__font" value="#FFFFFF">
+                        <span id="bg__font__span">#FFFFFF</span>
+                    </button>
+                </article>
+            </section>
+            <!-------------------------------- FONDO TRANSPARENTE -->
+            <section class="container__check">
+                <input type="checkbox" name="checkbox" id="check__transparent">
+                <label class="label__size">Fondo transparente</label>
+            </section>
+            <!-------------------------------------- CONTORNOS -->
+            <section class="panel__outline">
+                <h3 class="third__title">contorno</h3>
+                <button class="focus hover btn__transition btn__none">Ninguno</button>
+                <button class="focus hover btn__transition btn__clear">Claro</button>
+                <button class="focus hover btn__transition btn__darken">Oscuro</button>
+            </section>
+            <!--------------------------------------- ESPACIADO -->
+            <section>
+                <h3 class="third__title">espaciado</h3>
+                <input type="number" name="spacing" id="spacing" class="input__get hover transition" value="35">
+            </section>
+            <!--------------------------------------- INTERLINEADO -->
+            <section>
+                <h3 class="third__title">Interlineado</h3>
+                <select class="input__get hover transition leading">
+                    <option value="0.8">0.8</option>
+                    <option value="1">1</option>
+                    <option value="1.2" selected>1.2</option>
+                    <option value="1.5">1.5</option>
+                    <option value="2">2</option>
+                    <option value="2.5">2.5</option>
+                </select>
+            </section>
+        </section>
+    </aside>
+    <script src="./js/script.js"></script>
+</body>
+</html>

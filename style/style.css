@@ -1,0 +1,399 @@
+/* General styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Dark mode */
+:root{
+    --bg--header: #191e2b;
+    --color--primary: #ffffff;
+    --hover--primary: #4e5565;
+    --bg--main: #30343f;
+    --btn--download: #2e7d32;
+    --btn--download--hover: #1b5e20;
+    --bg--aside: #252935;
+    --input--btn: #393e49;
+    --bg--ranger: #5a5c68;
+    --circle--ranger: #fffffd;
+    --border--checkbox: #7b7d83;
+    --footer--color: #a8a8a8;
+
+}
+/* Theme - light mode */
+[data-theme="light__theme"]{
+    --bg--header: #e0e0e0;
+    --color--primary: #45403f;
+    --hover--primary: #bcbcbc;
+    --bg--main: #eeeeee;
+    --btn--download: #2e7d32;
+    --btn--download--hover: #1b5e20;
+    --bg--aside: #fafafa;
+    --input--btn: #dee0e4;
+    --bg--ranger: #5a5c69;
+    --circle--ranger: #424242;
+    --border--checkbox: #767676;
+    --footer--color: #1d1d1d;
+}
+
+/* _________ BODY _________ */
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* clases de varios elementos */
+.focus:focus{
+    background-color: var(--hover--primary);
+    transition: 0.3s;
+}
+.panels{
+    background-color: var(--bg--aside);
+    color: var(--color--primary);
+    padding: 10px 15px 40px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 20%;
+    overflow-y: scroll;
+    height: 100%;
+}
+.second__title{
+    margin-top: 30px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.third__title{
+    margin: 30px 0 10px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+.input__get{
+    /* display: block; */
+    background-color: var(--input--btn);
+    color: var(--color--primary);
+    border-radius: 3px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    /* outline: none; */
+}
+.label__size{
+    font-size: 0.8rem;
+}
+
+/* Comienzo del header */
+header{
+    background-color: var(--bg--header);
+    color: var(--color--primary);
+}
+
+h1{
+    padding: 10px 8px 20px;
+    font-size: 40px;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+/* Navbar */
+.nav__container{
+    display: flex;
+    justify-content: center;
+    padding: 0 0 10px;
+}
+/* Navbar - buttons */
+.btn__nav{
+    font-size: 16px;
+    border: none;
+    margin: 2.5px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--bg--header);
+    color: var(--color--primary);
+}
+#btn__light{
+    display: none;
+}
+
+/* comienzo del MAIN */
+.container{
+    background-color: var(--bg--main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 5px 0px;
+}
+/* Container memes editor */
+.container__memes__edit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    width: 35%;
+    background-color: black;
+}
+/* IMAGE URL */
+#image__meme{
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    flex-grow: 1;
+}
+/* Texto del editor */
+.text__editor{
+    background-color: var(--color--primary);
+    padding: 6px 50px;
+    font-size: 32px;
+    font-weight: 900;
+    text-align: center;
+    width: 100%;
+    font-family: Impact;
+    position: static;
+}
+/* Boton de descarga */
+#button__download{
+    padding: 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 3px;
+    color: #ffffff;
+    background-color: var(--btn--download);
+    margin: 30px 0;
+}
+#button__download:focus{
+    background-color: var(--btn--download--hover);
+    transition: 0.3s;
+}
+
+/* _________ ASIDE - Image panel _________ */
+/* btn X (close) */
+.btn__panel--close{
+    border: none;
+    background-color: var(--background__gray--aside);
+    color: var(--font--color--primary);
+    position: absolute;
+    right: 20px;
+}
+.fa-times{
+    padding: 5px;
+    border-radius: 5px;
+}
+/* Background */
+#container__background{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#container__background button{
+    background-color: var(--input--btn);
+    padding: 8px 10px;
+    border: none;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    width: 48%;
+    color: var(--color--primary);
+}
+input[type="color"]{
+    height: 20px;
+    width: 20px;
+    border: none;
+    border-radius: 100%;
+}
+#btn__bgimagen::-webkit-color-swatch{
+    display: none;
+}
+#btn__bgimagen::-moz-color-swatch{
+    display: none;
+}
+span{
+    margin: 0 8px;
+    font-weight: 700;
+}
+/* Background selector */
+.bg__select{
+    background-color: var(--input--btn);
+    padding: 9px 10px;
+    border: none;
+    border-radius: 3px;
+    width: 48%;
+    color: var(--color--primary);
+    font-size: 1rem;
+    outline: none;
+}
+/* Filtros */
+.filter{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.filter label{
+    margin-bottom: 11px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+.range{
+    width: 100%;
+    height: 6px;
+    background-color: var(--bg--ranger);
+    border-radius: 50px;
+    appearance: none;
+}
+input[type=range]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 19px;
+    width: 19px;
+    border-radius: 9px;
+    background: var(--circle--ranger);
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -5.5px;
+}
+
+/* Button reset */
+button[type="reset"]{
+    padding: 8px 12px;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--input--btn);
+    color: var(--color--primary);
+    font-size: 1.1rem;
+    margin-top: 15px;
+}
+
+/* _________ ASIDE - Text panel _________ */
+.text__panel{
+    display: none;
+}
+/* Checkbox */
+input[type="checkbox"]{
+    margin-right: 5px;
+    margin-top: 11px;
+}
+/* Font */
+.font__select{
+    background-color: var(--input--btn);
+    padding: 9px 10px;
+    border: none;
+    border-radius: 3px;
+    width: 100%;
+    color: var(--font--color--primary);
+    font-size: 1rem;
+    margin-bottom: 10px;
+    outline: none;
+}
+.font__size{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.size{
+    background-color: var(--input--btn);
+    color: var(--color--primary);
+    padding: 9px 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 1rem;
+    width: 50%;
+    outline: none;
+}
+.btn__size{
+    background-color: var(--input--btn);
+    color: var(--color--primary);
+    padding: 9px 14px;
+    border: none;
+    border-radius: 3px;
+    font-size: 1rem;
+    width: 15%;
+}
+/* Font - color / Bg - color */
+.container__font{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container__font button{
+    background-color: var(--input--btn);
+    padding: 8px 10px;
+    border: none;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    color: var(--color--primary);
+}
+#color__text{
+    background-color: black;
+}
+#text__color input::-webkit-color-swatch{
+    display: none;
+}
+#text__color input::-moz-color-swatch{
+    display: none;
+}
+#font__color input::-webkit-color-swatch{
+    display: none;
+}
+#font__color input::-moz-color-swatch{
+    display: none;
+}
+/* Outline */
+.panel__outline button{
+    background-color: var(--input--btn);
+    color: var(--color--primary);
+    padding: 9px;
+    border: none;
+    border-radius: 3px;
+    font-size: 1rem;
+}
+/*______Responsive_____*/
+
+/* mobile */
+@media (max-width:760px){
+    .containercontainer__memes__edit{
+        width: 100%;
+        height: 100%;
+        max-width: 600px;
+    }
+    .panels{
+        display: none;
+    }
+    .text__editor{
+        font-size: 18px;
+    }
+    h1{
+        font-size: 25px;
+    }
+    #button__download{
+        padding: 10px;
+        font-size: 10px;
+    }
+    
+}
+/* tablet */
+@media (min-width: 761px) and (max-width:1023px){
+    .containercontainer__memes__edit{
+        width: 100%;
+        height: 100%;
+        max-width: 800px;
+    }
+    .text__editor{
+        font-size: 22px;
+    }
+    h1{
+        font-size: 30px;
+    }
+    .panels{
+        display: none;
+    }
+}
