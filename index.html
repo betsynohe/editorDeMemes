@@ -12,9 +12,20 @@
     <!--link para iconos-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@master/devicon.min.css">
     <!--link font awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+    <script src="https://kit.fontawesome.com/d2f0778e32.js" crossorigin="anonymous"></script>
 <!-- link del estilo de css -->
     <link rel="stylesheet" href="./style/style.css">
+    <!--libreria para la descarga-->
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"
+    integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+    integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
 <!-- titulo e icono de pestaña -->
     <link rel="icon" href="./img/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
@@ -38,11 +49,11 @@
             Texto
         </button>
     <!-- BOTONES DE MODO -->
-        <button id="btn__dark" class="btn__nav focus hover btn__transition hidden">
+        <button id="btn__dark" class="btn__nav focus hover btn__transition ">
             <i class="fa-solid fa-lightbulb"></i>
             Modo oscuro
         </button>
-        <button id="btn__light" class="btn__nav focus hover btn__transition">
+        <button id="btn__light" class="btn__nav focus hover btn__transition hidden">
             <i class="fa-regular fa-lightbulb"></i>
             Modo claro
         </button>
@@ -51,7 +62,7 @@
 <!-- ____________________________ COMIENZO DEL MAIN ___________________-->
 <main class="container">
     <!-----------------CONTENEDOR DEL EDITOR -->
-    <section class="container__memes__edit">
+    <section id="container__memes__edit" class="container__memes__edit">
         <!------------ TEXTO SUPERIOR -->
         <p class="text__editor top__text">TOP TEXT</p>
         <!-------------URL DE LA IMAGEN -->
@@ -67,7 +78,7 @@
     </button>
 </main>
     <!-- _________________________________ ASIDE - PANEL DE IMAGEN ______________________________ -->
-    <aside class="panels hidden image__panel">
+    <aside class="panels image__panel">
         <!--------------------------- BOTON X (CERRAR) - PANEL DE IMAGEN -->
         <button class="btn__panel--close btn__transition btn__image__panel--close">
             <i class="fas fa-times hover" aria-hidden="true"></i>
@@ -110,37 +121,37 @@
                 </article>
                 <!--------------------------- CONTRASTE -->
                 <article class="filter">
-                    <label for="">contraste</label>
+                    <label for="contrast">contraste</label>
                     <input type="range" name="contrast" class="contrast range"   value="100" min="100" max="1000">
                 </article>
                 <!-------------------------- DESENFOQUE -->
                 <article class="filter">
-                    <label for="">desenfoque</label>
+                    <label for="blur">desenfoque</label>
                     <input type="range" name="blur" class="blur range"  value="0" min="0" max="10" step="0.1">
                 </article>
                 <!---------------------------- ESCALA DE GRISES -->
                 <article class="filter">
-                    <label for="">escala de grises</label>
+                    <label for="grayscale">escala de grises</label>
                     <input type="range" name="grayscale" class="grayscale range" value="0" min="0" max="100">
                 </article>
                 <!--------------------------------- SEPIA -->
                 <article class="filter">
-                    <label for="">sepia</label>
+                    <label for="sepia">sepia</label>
                     <input type="range" name="sepia" class="sepia range" value="0" min="0" max="100">
                 </article>
                 <!---------------------------------- MATIZ -->
                 <article class="filter">
-                    <label for="">hue</label>
+                    <label for="hue">hue</label>
                     <input type="range" name="hue" class="hue range" value="0" min="0" max="369">
                 </article>
                 <!--------------------------------- SATURACION -->
                 <article class="filter">
-                    <label for="">saturado</label>
+                    <label for="crowded">saturado</label>
                     <input type="range" name="crowded" class="crowded range" value="0" min="100" max="1000">
                 </article>
                 <!------------------------------ NEGATIVO -->
                 <article class="filter">
-                    <label for="">negativo</label>
+                    <label for="negative">negativo</label>
                     <input type="range" name="negative" class="negative range" value="0" min="0" max="100">
                 </article>
                 <!---------------------------- BOTON DE RESETEO -->
@@ -162,7 +173,7 @@
         <h3 class="third__title">superior</h3>
         <input type="text" name="top text editor" id="input__text__top" class="input__get focus hover transition">
         <input type="checkbox" name="checkbox" id="check__text__top">
-        <label for="" class="label__size">Sin texto superior</label>
+        <label class="label__size">Sin texto superior</label>
         <!--------------------------------- EDITAR EL TEXTO INFERIOR -->
         <h3 class="third__title">inferior</h3>
         <input type="text" name="bottom text editor" id="input__text__bottom" class="input__get focus hover transition">
