@@ -12,6 +12,8 @@ const changeTheme = () => {
         $("#gif__text1").classList.remove("hidden")
         $("#gif__img").classList.add("hidden")
         $("#gif__img1").classList.remove("hidden")
+        $("#footer__gif").classList.add("hidden")
+        $("#footer__gif1").classList.remove("hidden")
     }else {
         $("#btn__dark").classList.remove("hidden")
         $("#btn__light").classList.add("hidden")
@@ -20,6 +22,8 @@ const changeTheme = () => {
         $("#gif__text1").classList.add("hidden")
         $("#gif__img").classList.remove("hidden")
         $("#gif__img1").classList.add("hidden")
+        $("#footer__gif").classList.remove("hidden")
+        $("#footer__gif1").classList.add("hidden")
     }
 }
 // Dark button
@@ -69,23 +73,14 @@ $("#select__bg").addEventListener("click", () =>{
 const range = () =>{
     $("#image__meme").style.filter = `brightness(${$(".glow").value}) opacity(${$(".opacity").value}) contrast(${$(".contrast").value}%) blur(${$(".blur").value}px) grayscale(${$(".grayscale").value}%) sepia(${$(".sepia").value}%) hue-rotate(${$(".hue").value}deg) saturate(${$(".crowded").value}%) invert(${$(".negative").value}%)`
 }
-//  Brightness
 $(".glow").addEventListener("input", range)
-//  Opacity
 $(".opacity").addEventListener("input", range) 
-//  Contrast
 $(".contrast").addEventListener("input", range)
-//  Unfocused
 $(".blur").addEventListener("input", range)
-//  Grayscale
 $(".grayscale").addEventListener("input", range)
-//  Sepia
 $(".sepia").addEventListener("input", range)
-//  Hue
 $(".hue").addEventListener("input", range)
-//  Saturation
 $(".crowded").addEventListener("input", range)
-//  Negative
 $(".negative").addEventListener("input", range)
 // Button reset - Filters
 const btnResetFilters = () =>{
@@ -152,7 +147,7 @@ $("#check__transparent").addEventListener("change", () =>{
     if ($("#check__transparent").checked){
         $(".top__text").style.backgroundColor = "transparent"
         $(".top__text").style.position = "absolute"
-        $(".top__text").style.top = "0"
+        $(".top__text").style.top = "-0"
         $(".bottom__text").style.backgroundColor = "transparent"
         $(".bottom__text").style.position = "absolute"
         $(".bottom__text").style.bottom = "0"
