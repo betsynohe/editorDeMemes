@@ -8,6 +8,7 @@
 :root {
     --bg--header: #191e2b;
     --color--primary: #ffffff;
+    --color--text--main:#ffffff;
     --hover--primary: #4e5565;
     --bg--main: #30343f;
     --btn--download: #2e7d32;
@@ -21,25 +22,26 @@
 }
 /* Theme - light mode */
 [data-theme="light__theme"] {
-    --bg--header: #e0e0e0;
-    --color--primary: #45403f;
-    --hover--primary: #bcbcbc;
-    --bg--main: #eeeeee;
-    --btn--download: #2e7d32;
-    --btn--download--hover: #1b5e20;
-    --bg--aside: #fafafa;
-    --input--btn: #dee0e4;
-    --bg--ranger: #5a5c69;
-    --circle--ranger: #424242;
-    --border--checkbox: #767676;
+    --bg--header: #FF69B4;
+    --color--primary:  #000000;
+    --color--text--main:#ffffff;
+    --hover--primary: #FFC0CB;
+    --bg--main: #FFC0CB;
+    --btn--download: #FF69B4;
+    --btn--download--hover: #eec0c8;
+    --bg--aside: #eec0c8;
+    --input--btn: #FF69B4;
+    --bg--ranger: #F9629F;
+    --circle--ranger: #FF69B4;
+    --border--checkbox: #000000;
     --bg--contain: #000000;
 }
 
 /* _________ BODY _________ */
 body {
     height: 100vh;
-    /* display: flex; */
-    flex-direction: column;
+    display: flex; 
+    flex-direction: column; 
 }
 
 /* clases de varios elementos */
@@ -117,12 +119,15 @@ h1 {
     background-color: var(--bg--header);
     color: var(--color--primary);
 }
+.image__letra{
+    height: 20px;
+    width: 20px;
+}
 
 /* comienzo del MAIN */
 .container {
     background-color: var(--bg--main);
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 100%;
@@ -130,14 +135,15 @@ h1 {
 }
 /* Container memes editor */
 .container__memes__edit {
-    /* display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; */
-    height: 80%;
+    flex-direction: column;
+    height: 100%;
     width: 100%;
     max-width: 500px;
     background-color: var(--bg--contain);
+    position: relative;
 }
 /* IMAGE URL */
 #image__meme {
@@ -145,16 +151,17 @@ h1 {
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
-    height: 80%;
+    height: 100%;
 }
 /* Texto del editor */
 .text__editor {
-    background-color: var(--color--primary);
-    padding: 6px 50px;
+    background-color: var(--color--text--main);
+    padding: 9px 50px;
     font-size: 32px;
     font-weight: 900;
     text-align: center;
     width: 100%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 /* Boton de descarga */
 #button__download {
@@ -164,7 +171,7 @@ h1 {
     border-radius: 3px;
     color: #ffffff;
     background-color: var(--btn--download);
-    margin: 5px 0;
+    margin: 40px 0;
     cursor: pointer;
 }
 #button__download:focus {

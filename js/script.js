@@ -8,10 +8,18 @@ const changeTheme = () => {
         $("#btn__dark").classList.add("hidden")
         $("#btn__light").classList.remove("hidden")
         $("body").removeAttribute("data-theme", "light__theme")
+        $("#gif__text").classList.add("hidden")
+        $("#gif__text1").classList.remove("hidden")
+        $("#gif__img").classList.add("hidden")
+        $("#gif__img1").classList.remove("hidden")
     }else {
         $("#btn__dark").classList.remove("hidden")
         $("#btn__light").classList.add("hidden")
         $("body").setAttribute("data-theme", "light__theme")
+        $("#gif__text").classList.remove("hidden")
+        $("#gif__text1").classList.add("hidden")
+        $("#gif__img").classList.remove("hidden")
+        $("#gif__img1").classList.add("hidden")
     }
 }
 // Dark button
@@ -62,23 +70,23 @@ const range = () =>{
     $("#image__meme").style.filter = `brightness(${$(".glow").value}) opacity(${$(".opacity").value}) contrast(${$(".contrast").value}%) blur(${$(".blur").value}px) grayscale(${$(".grayscale").value}%) sepia(${$(".sepia").value}%) hue-rotate(${$(".hue").value}deg) saturate(${$(".crowded").value}%) invert(${$(".negative").value}%)`
 }
 //  Brightness
-$(".glow").addEventListener("change", range)
+$(".glow").addEventListener("input", range)
 //  Opacity
-$(".opacity").addEventListener("change", range) 
+$(".opacity").addEventListener("input", range) 
 //  Contrast
-$(".contrast").addEventListener("change", range)
+$(".contrast").addEventListener("input", range)
 //  Unfocused
-$(".blur").addEventListener("change", range)
+$(".blur").addEventListener("input", range)
 //  Grayscale
-$(".grayscale").addEventListener("change", range)
+$(".grayscale").addEventListener("input", range)
 //  Sepia
-$(".sepia").addEventListener("change", range)
+$(".sepia").addEventListener("input", range)
 //  Hue
-$(".hue").addEventListener("change", range)
+$(".hue").addEventListener("input", range)
 //  Saturation
-$(".crowded").addEventListener("change", range)
+$(".crowded").addEventListener("input", range)
 //  Negative
-$(".negative").addEventListener("change", range)
+$(".negative").addEventListener("input", range)
 // Button reset - Filters
 const btnResetFilters = () =>{
     $(".glow").value = "100"
@@ -93,15 +101,110 @@ const btnResetFilters = () =>{
     range()
 }
 $(".btn__reset__filters").addEventListener ("click", btnResetFilters)
-
-const meme = document.getElementById("container__memes__edit")
 // Button download
 const downloadMeme = () => {
-    domtoimage.toBlob(meme).then(function (blob) {
+    domtoimage.toBlob($(".container__memes__edit")).then(function (blob) {
     window.saveAs(blob, "mi-meme.png");
     });
 };
 $("#button__download").addEventListener('click', downloadMeme)
-console.log(meme)
-console.log($("#button__download")
-)
+
+// _________ ASIDE - Text panel
+// Text top
+$("#input__text__top").addEventListener("input", () =>{
+    $(".top__text").innerText = $("#input__text__top").value
+})
+// Text top - disappear
+$("#check__text__top").addEventListener("change", () =>{
+    if ($("#check__text__top").checked){
+        $(".top__text").classList.add("hidden")
+    } else{
+        $(".top__text").classList.remove("hidden")
+    }
+})
+// Text bottom
+$("#input__text__bottom").addEventListener("input", () =>{
+    $(".bottom__text").innerText = $("#input__text__bottom").value
+})
+// Text bottom - disappear
+$("#check__text__bottom").addEventListener("change", () =>{
+    if ($("#check__text__bottom").checked){
+        $(".bottom__text").classList.add("hidden")
+    } else{
+        $(".bottom__text").classList.remove("hidden")
+    }
+})
+// EVENT - text top AND text - color and backgroundColor
+$("#color__text").addEventListener("input", () =>{
+    $(".top__text").style.color = $("#color__text").value
+    $(".bottom__text").style.color = $("#color__text").value
+    $("#color__text__span").innerText = ($("#color__text").value).toUpperCase()
+    $("#color__text").style.backgroundColor = $("#color__text").value
+})
+$("#bg__font").addEventListener("input", () =>{
+    $(".top__text").style.backgroundColor = $("#bg__font").value
+    $(".bottom__text").style.backgroundColor = $("#bg__font").value
+    $("#bg__font__span").innerText = ($("#bg__font").value).toUpperCase()
+    $("#bg__font").style.backgroundColor = $("#bg__font").value
+})
+// Transparent background
+$("#check__transparent").addEventListener("change", () =>{
+    if ($("#check__transparent").checked){
+        $(".top__text").style.backgroundColor = "transparent"
+        $(".top__text").style.position = "absolute"
+        $(".top__text").style.top = "0"
+        $(".bottom__text").style.backgroundColor = "transparent"
+        $(".bottom__text").style.position = "absolute"
+        $(".bottom__text").style.bottom = "0"
+    } else{
+        $(".top__text").style.backgroundColor = $("#bg__font").value
+        $(".bottom__text").style.backgroundColor = $("#bg__font").value
+    }
+})
+// Font
+$(".select__font").addEventListener("click", () =>{
+    $(".top__text").style.fontFamily = $(".select__font").value
+    $(".bottom__text").style.fontFamily = $(".select__font").value
+})
+$(".size").addEventListener("change", () =>{
+    $(".top__text").style.fontSize = `${$(".size").value}px`
+    $(".bottom__text").style.fontSize = `${$(".size").value}px`
+})
+$(".left").addEventListener("click", () =>{
+    $(".top__text").style.textAlign = "left"
+    $(".bottom__text").style.textAlign = "left"
+})
+$(".center").addEventListener("click", () =>{
+    $(".top__text").style.textAlign = "center"
+    $(".bottom__text").style.textAlign = "center"
+})
+$(".right").addEventListener("click", () =>{
+    $(".top__text").style.textAlign = "right"
+    $(".bottom__text").style.textAlign = "right"
+})
+// Outline
+// None
+$(".btn__none").addEventListener("click", () =>{
+    $(".top__text").style.textShadow = "none"
+    $(".bottom__text").style.textShadow = "none"
+})
+// Clear
+$(".btn__clear").addEventListener("click", () =>{
+    $(".top__text").style.textShadow = `2px 2px #F0F0F0 , -2px 2px #F0F0F0, 2px -2px #F0F0F0, -2px -2px #F0F0F0`
+    $(".bottom__text").style.textShadow = `2px 2px #F0F0F0 , -2px 2px #F0F0F0, 2px -2px #F0F0F0, -2px -2px #F0F0F0`
+})
+// Darken
+$(".btn__darken").addEventListener("click", () =>{
+    $(".top__text").style.textShadow = `2px 2px #000000 , -2px 2px #000000, 2px -2px #000000, -2px -2px #000000`
+    $(".bottom__text").style.textShadow = `2px 2px #000000 , -2px 2px #000000, 2px -2px #000000, -2px -2px #000000`
+})
+// Spacing
+$("#spacing").addEventListener("input", () =>{
+    $(".top__text").style.padding = `${$("#spacing").value}px`
+    $(".bottom__text").style.padding = `${$("#spacing").value}px`
+})
+// Leading
+$(".leading").addEventListener("input", () =>{
+    $(".top__text").style.lineHeight = $(".leading").value
+    $(".bottom__text").style.lineHeight = $(".leading").value
+})
