@@ -177,6 +177,7 @@ $(".right").addEventListener("click", () =>{
     $(".top__text").style.textAlign = "right"
     $(".bottom__text").style.textAlign = "right"
 })
+
 // Outline
 // None
 $(".btn__none").addEventListener("click", () =>{
