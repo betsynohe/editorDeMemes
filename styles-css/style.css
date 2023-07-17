@@ -58,7 +58,7 @@ body {
     right: 0;
     width: 25%;
     max-width: 300px;
-    overflow-y: scroll;
+    overflow: auto;
     height: 100%;
 }
 .second__title {
@@ -158,6 +158,7 @@ h1 {
     font-weight: 900;
     text-align: center;
     width: 100%;
+    overflow: hidden;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 /* Boton de descarga */
@@ -264,7 +265,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 /* Button reset */
-button[type="reset"] {
+input[type="reset"] {
     padding: 8px 12px;
     border: none;
     border-radius: 3px;
@@ -387,6 +388,7 @@ footer{
     .panels {
         display: none;
         width: 100%;
+        max-width: 100%;
     }
     .text__editor {
         font-size: 18px;

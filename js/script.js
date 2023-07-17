@@ -82,20 +82,12 @@ $(".sepia").addEventListener("input", range)
 $(".hue").addEventListener("input", range)
 $(".crowded").addEventListener("input", range)
 $(".negative").addEventListener("input", range)
-// Button reset - Filters
-const btnResetFilters = () =>{
-    $(".glow").value = "100"
-    $(".opacity").value = "100"
-    $(".contrast").value = "0"
-    $(".blur").value = "0"
-    $(".grayscale").value = "0"
-    $(".sepia").value = "0"
-    $(".hue").value = "0"
-    $(".crowded").value = "0"
-    $(".negative").value = "0"
-    range()
-}
-$(".btn__reset__filters").addEventListener ("click", btnResetFilters)
+
+// Button reset - Filter
+$(".btn__reset__filters").addEventListener("click", () =>{
+    $("#image__meme").style.filter = "none"
+})
+
 // Button download
 const downloadMeme = () => {
     domtoimage.toBlob($(".container__memes__edit")).then(function (blob) {
@@ -147,13 +139,14 @@ $("#check__transparent").addEventListener("change", () =>{
     if ($("#check__transparent").checked){
         $(".top__text").style.backgroundColor = "transparent"
         $(".top__text").style.position = "absolute"
-        $(".top__text").style.top = "-0"
+        $(".top__text").style.top = "0"
         $(".bottom__text").style.backgroundColor = "transparent"
         $(".bottom__text").style.position = "absolute"
         $(".bottom__text").style.bottom = "0"
     } else{
         $(".top__text").style.backgroundColor = $("#bg__font").value
         $(".bottom__text").style.backgroundColor = $("#bg__font").value
+        $(".top__text").style.position = "sticky"
     }
 })
 // Font

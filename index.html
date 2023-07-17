@@ -1,143 +1,152 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Aplicacion para editar y generar memes.">
-    <meta name="keywords" content="Generadorde memes, editor de memes, front end, desarrolladora web, diseño de paginas web, programadora, html, css, javascript, desarrollo front end, programación, diseño web.">
-<!-- link para el estilo de letras-->
+    <meta name="keywords"
+        content="Generadorde memes, editor de memes, front end, desarrolladora web, diseño de paginas web, programadora, html, css, javascript, desarrollo front end, programación, diseño web.">
+    <!-- link para el estilo de letras-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- link para los iconos-->    
+    <!-- link para los iconos-->
     <script src="https://kit.fontawesome.com/d2f0778e32.js" crossorigin="anonymous"></script>
-<!-- link para el estilo de pagina-->    
+    <!-- link para el estilo de pagina-->
     <link rel="stylesheet" href="./styles-css/style.css">
-<!-- links librerias para el boton de descarga-->    
+    <!-- links librerias para el boton de descarga-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"
-    integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
-    integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<!-- link iconos de pestaña-->    
+        integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- link iconos de pestaña-->
     <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
     <title>Editor de Memes</title>
 </head>
+
 <body>
-<header>
-    <h1>Generador de Memes</h1>
-<!-- Navbar -->
-    <nav class="nav__container">
-    <!-- BOTON DE IMAGEN -->
-        <button id="btn__img" class="btn__nav focus hover btn__transition">
-            <img id="gif__img1" class="image__letra" src="./img/icons8-pila-de-fotos.gif" alt="gif de letra a">
-            <img id="gif__img" class="image__letra hidden" src="./img/icons8-pila-de-fotos (1).gif" alt="">
-            Imagen
+    <header>
+        <h1>Generador de Memes</h1>
+        <!-- Navbar -->
+        <nav class="nav__container">
+            <!-- BOTON DE IMAGEN -->
+            <button id="btn__img" class="btn__nav focus hover btn__transition">
+                <img id="gif__img1" class="image__letra" src="./img/icons8-pila-de-fotos.gif" alt="gif de letra a">
+                <img id="gif__img" class="image__letra hidden" src="./img/icons8-pila-de-fotos (1).gif" alt="">
+                Imagen
+            </button>
+            <!-- BOTON DE TEXTO -->
+            <button id="btn__text" class="btn__nav focus hover btn__transition">
+                <img id="gif__text1" class="image__letra" src="./img/icons8-texto.gif" alt="gif de letra a">
+                <img id="gif__text" class="image__letra hidden" src="./img/icons8-texto (1).gif" alt="gif de letra a">
+                Texto
+            </button>
+            <!-- BOTONES DE MODO -->
+            <button id="btn__dark" class="btn__nav focus hover btn__transition ">
+                <img class="image__letra" src="./img/icons8-bombilla.gif" alt="gif de letra a">
+                Modo oscuro
+            </button>
+            <button id="btn__light" class="btn__nav focus hover btn__transition hidden">
+                <img class="image__letra" src="./img/icons8-bombilla (1).gif" alt="gif de letra a">
+                Modo claro
+            </button>
+        </nav>
+    </header>
+    <!-- ____________________________ COMIENZO DEL MAIN ___________________-->
+    <main class="container">
+        <section id="container__edit__memes" class="container__memes__edit">
+            <p class="text__editor top__text">TOP TEXT</p>
+            <figure id="image__meme"> </figure>
+            <p class="text__editor bottom__text">BOTTOM TEXT</p>
+        </section>
+        <button id="button__download" class="btn__transition">
+            <i class="fa-solid fa-download"></i>
+            Descargar meme
         </button>
-    <!-- BOTON DE TEXTO -->
-        <button id="btn__text" class="btn__nav focus hover btn__transition">
-            <img id="gif__text1" class="image__letra" src="./img/icons8-texto.gif" alt="gif de letra a">
-            <img id="gif__text" class="image__letra hidden" src="./img/icons8-texto (1).gif" alt="gif de letra a">
-            Texto
-        </button>
-    <!-- BOTONES DE MODO -->
-        <button id="btn__dark" class="btn__nav focus hover btn__transition ">
-            <img class="image__letra" src="./img/icons8-bombilla.gif" alt="gif de letra a">
-            Modo oscuro
-        </button>
-        <button id="btn__light" class="btn__nav focus hover btn__transition hidden">
-            <img class="image__letra" src="./img/icons8-bombilla (1).gif" alt="gif de letra a">
-            Modo claro
-        </button>
-    </nav>
-</header>
-<!-- ____________________________ COMIENZO DEL MAIN ___________________-->
-<main class="container">
-    <section id="container__memes__edit" class="container__memes__edit">
-        <p class="text__editor top__text">TOP TEXT</p>
-        <figure id="image__meme"> </figure>
-        <p class="text__editor bottom__text">BOTTOM TEXT</p>
-    </section>
-    <button id="button__download" class="btn__transition">
-        <i class="fa-solid fa-download"></i>
-        Descargar meme
-    </button>
-</main>
+    </main>
     <!-- _________________________________ ASIDE - PANEL DE IMAGEN ______________________________ -->
+
     <aside class="panels image__panel">
         <!--------------------------- BOTON X (CERRAR) - PANEL DE IMAGEN -->
-        <button class="btn__panel--close btn__transition btn__image__panel--close">
-            <i class="fas fa-times hover" aria-hidden="true"></i>
-        </button>
-        <section>
-            <!-------------------------------- SUB-TITULO IMAGEN -->
-            <h2 class="second__title">imagen</h2>
-            <!-------------------------------- URL -->
-            <h3 class="third__title">url</h3>
-            <input type="text" placeholder="Copiar dirección de imagen" name="Uniform Resource Locator" class="input__get focus hover transition" id="url__image">
-            <!------------------------------------ FONDO -->
-            <h3 class="third__title">fondo</h3>
-            <section id="container__background">
-                <button>
-                    <input type="color" name="background color" id="btn__bgimagen" class="btn__transition" value="#000000">
-                    <span id="bgimagen__span">#FFFFFF</span>
-                </button>
-                <!--------------------------- SELECCION DE FONDO -->
-                <select name="filter selector" id="select__bg" class="bg__select focus hover transition">
-                    <option value="unset" id="unset">Ninguno</option>
-                    <option value="lighten" id="lighten">Aclarar</option>
-                    <option value="darken" id="darken">Oscurecer</option>
-                    <option value="difference" id="difference">Diferencia</option>
-                    <option value="luminosity" id="luminosity">Luminosidad</option>
-                    <option value="multiply" id="multiply">Multiplicar</option>
-                </select>
-            </section>
-            <!-- ___________________________ FILTROS ____________________________ -->
+        <form>
+            <button class="btn__panel--close btn__transition btn__image__panel--close">
+                <i class="fas fa-times hover" aria-hidden="true"></i>
+            </button>
             <section>
-                <h3 class="third__title">filtros</h3>
-                <article class="filter">
-                    <label for="brightness">brillo</label>
-                    <input type="range" name="brightness" class="glow range" value="1" min="0" max="1" step="0.1">
-                </article>
-                <article class="filter">
-                    <label for="opacity">opacidad</label>
-                    <input type="range" name="opacity" class="opacity range" value="1" min="0" max="1" step="0.1">
-                </article>
-                <article class="filter">
-                    <label for="contrast">contraste</label>
-                    <input type="range" name="contrast" class="contrast range"   value="100" min="100" max="1000">
-                </article>
-                <article class="filter">
-                    <label for="blur">desenfoque</label>
-                    <input type="range" name="blur" class="blur range"  value="0" min="0" max="10" step="0.1">
-                </article>
-                <article class="filter">
-                    <label for="grayscale">escala de grises</label>
-                    <input type="range" name="grayscale" class="grayscale range" value="0" min="0" max="100">
-                </article>
-                <article class="filter">
-                    <label for="sepia">sepia</label>
-                    <input type="range" name="sepia" class="sepia range" value="0" min="0" max="100">
-                </article>
-                <article class="filter">
-                    <label for="matiz">hue</label>
-                    <input type="range" name="hue" class="hue range" value="0" min="0" max="369">
-                </article>
-                <article class="filter">
-                    <label for="crowded">saturado</label>
-                    <input type="range" name="crowded" class="crowded range" value="0" min="100" max="1000">
-                </article>
-                <article class="filter">
-                    <label for="negative">negativo</label>
-                    <input type="range" name="negative" class="negative range" value="0" min="0" max="100">
-                </article>
-                <!---------------------------- BOTON DE RESETEO -->
-                <button type="reset" class="focus hover btn__transition btn__reset__filters">
-                    Reestablecer filtros
-                </button>
+                <!-------------------------------- SUB-TITULO IMAGEN -->
+                <h2 class="second__title">imagen</h2>
+                <!-------------------------------- URL -->
+                <h3 class="third__title">url</h3>
+                <input type="text" placeholder="Copiar dirección de imagen" name="Uniform Resource Locator"
+                    class="input__get focus hover transition" id="url__image">
+                <!------------------------------------ FONDO -->
+                <h3 class="third__title">fondo</h3>
+                <section id="container__background">
+                    <button>
+                        <input type="color" name="background color" id="btn__bgimagen" class="btn__transition"
+                            value="#000000">
+                        <span id="bgimagen__span">#FFFFFF</span>
+                    </button>
+                    <!--------------------------- SELECCION DE FONDO -->
+                    <select name="filter selector" id="select__bg" class="bg__select focus hover transition">
+                        <option value="unset" id="unset">Ninguno</option>
+                        <option value="lighten" id="lighten">Aclarar</option>
+                        <option value="darken" id="darken">Oscurecer</option>
+                        <option value="difference" id="difference">Diferencia</option>
+                        <option value="luminosity" id="luminosity">Luminosidad</option>
+                        <option value="multiply" id="multiply">Multiplicar</option>
+                    </select>
+                </section>
+                <!-- ___________________________ FILTROS ____________________________ -->
+                <section>
+                    <h3 class="third__title">filtros</h3>
+                    <article class="filter">
+                        <label for="brightness">brillo</label>
+                        <input type="range" name="brightness" class="glow range" value="1" min="0" max="1" step="0.1">
+                    </article>
+                    <article class="filter">
+                        <label for="opacity">opacidad</label>
+                        <input type="range" name="opacity" class="opacity range" value="1" min="0" max="1" step="0.1">
+                    </article>
+                    <article class="filter">
+                        <label for="contrast">contraste</label>
+                        <input type="range" name="contrast" class="contrast range" value="100" min="100" max="1000">
+                    </article>
+                    <article class="filter">
+                        <label for="blur">desenfoque</label>
+                        <input type="range" name="blur" class="blur range" value="0" min="0" max="10" step="0.1">
+                    </article>
+                    <article class="filter">
+                        <label for="grayscale">escala de grises</label>
+                        <input type="range" name="grayscale" class="grayscale range" value="0" min="0" max="100">
+                    </article>
+                    <article class="filter">
+                        <label for="sepia">sepia</label>
+                        <input type="range" name="sepia" class="sepia range" value="0" min="0" max="100">
+                    </article>
+                    <article class="filter">
+                        <label for="matiz">hue</label>
+                        <input type="range" name="hue" class="hue range" value="0" min="0" max="369">
+                    </article>
+                    <article class="filter">
+                        <label for="crowded">saturado</label>
+                        <input type="range" name="crowded" class="crowded range" value="0" min="100" max="1000">
+                    </article>
+                    <article class="filter">
+                        <label for="negative">negativo</label>
+                        <input type="range" name="negative" class="negative range" value="0" min="0" max="100">
+                    </article>
+                    <input type="reset" value="Restablecer Filtros"
+                        class="focus hover btn__transition btn__reset__filters">
+                    </input>
+                </section>
             </section>
-        </section>
+        </form>
     </aside>
+        
     <!--______________________________________ ASIDE - PANEL DEL TEXTO _______________-->
     <aside class="panels hidden text__panel">
         <!-------------------------------- BOTON X (CERRAR) - PANEL TEXTO -->
@@ -170,7 +179,7 @@
                 <option value="Verdana">Verdana</option>
                 <option value="Times New Roman">Times New Roman</option>
             </select>
-        <!-------------------------- BOTONES DE FUENTE (TAMAÑO, DERECHA, CENTRADO, IZQUIERDA) -->
+            <!-------------------------- BOTONES DE FUENTE (TAMAÑO, DERECHA, CENTRADO, IZQUIERDA) -->
             <section class="font__size">
                 <input type="number" name="number" class="size focus hover transition" value="40">
                 <button class="btn__size left focus hover btn__transition">
@@ -233,9 +242,12 @@
         </section>
     </aside>
     <footer>
-        <p class="text__footer">Hecho con <img id="footer__gif1" class="gif__footer" src="./img/icons8-amor.gif" alt="gif amar"> <img id="footer__gif" class="gif__footer hidden" src="./img/amar.gif" alt="gif de amar"> por Betsy Guitian</p>
+        <p class="text__footer">Hecho con <img id="footer__gif1" class="gif__footer" src="./img/icons8-amor.gif"
+                alt="gif amar"> <img id="footer__gif" class="gif__footer hidden" src="./img/amar.gif" alt="gif de amar">
+            por Betsy Guitian</p>
     </footer>
     <!-- javascipt -->
     <script src="./js/script.js"></script>
 </body>
+
 </html>
