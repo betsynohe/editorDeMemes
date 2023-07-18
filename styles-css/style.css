@@ -73,7 +73,7 @@ body {
     text-transform: uppercase;
 }
 .input__get {
-    /* display: block; */
+    display: block;
     background-color: var(--input--btn);
     color: var(--color--primary);
     border-radius: 3px;
@@ -265,7 +265,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 /* Button reset */
-input[type="reset"] {
+button[type="reset"] {
     padding: 8px 12px;
     border: none;
     border-radius: 3px;
@@ -407,6 +407,7 @@ footer{
         height: 90%;
         width: 80%;
         max-width: 500px;
+        
     }
     .text__editor {
         font-size: 22px;

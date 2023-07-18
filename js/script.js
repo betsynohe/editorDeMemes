@@ -84,9 +84,19 @@ $(".crowded").addEventListener("input", range)
 $(".negative").addEventListener("input", range)
 
 // Button reset - Filter
-$(".btn__reset__filters").addEventListener("click", () =>{
-    $("#image__meme").style.filter = "none"
-})
+const btnResetFilters = () =>{
+    $(".glow").value = "100"
+    $(".opacity").value = "100"
+    $(".contrast").value = "0"
+    $(".blur").value = "0"
+    $(".grayscale").value = "0"
+    $(".sepia").value = "0"
+    $(".hue").value = "0"
+    $(".crowded").value = "0"
+    $(".negative").value = "0"
+    range()
+}
+$(".btn__reset__filters").addEventListener ("click", btnResetFilters)
 
 // Button download
 const downloadMeme = () => {

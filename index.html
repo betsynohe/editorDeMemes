@@ -71,12 +71,10 @@
 
     <aside class="panels image__panel">
         <!--------------------------- BOTON X (CERRAR) - PANEL DE IMAGEN -->
-        <form>
             <button class="btn__panel--close btn__transition btn__image__panel--close">
                 <i class="fas fa-times hover" aria-hidden="true"></i>
             </button>
             <section>
-                <!-------------------------------- SUB-TITULO IMAGEN -->
                 <h2 class="second__title">imagen</h2>
                 <!-------------------------------- URL -->
                 <h3 class="third__title">url</h3>
@@ -139,12 +137,12 @@
                         <label for="negative">negativo</label>
                         <input type="range" name="negative" class="negative range" value="0" min="0" max="100">
                     </article>
-                    <input type="reset" value="Restablecer Filtros"
+                    <button type="reset"
                         class="focus hover btn__transition btn__reset__filters">
-                    </input>
+                        Restablecer Filtros
+                    </button>
                 </section>
             </section>
-        </form>
     </aside>
         
     <!--______________________________________ ASIDE - PANEL DEL TEXTO _______________-->
@@ -181,7 +179,7 @@
             </select>
             <!-------------------------- BOTONES DE FUENTE (TAMAÑO, DERECHA, CENTRADO, IZQUIERDA) -->
             <section class="font__size">
-                <input type="number" name="number" class="size focus hover transition" value="40">
+                <input type="number" name="number" class="size focus hover transition" min="12" value="40">
                 <button class="btn__size left focus hover btn__transition">
                     <i class="fas fa-align-left" aria-hidden="true"></i>
                 </button>
@@ -225,7 +223,7 @@
             <!--------------------------------------- ESPACIADO -->
             <section>
                 <h3 class="third__title">espaciado</h3>
-                <input type="number" name="spacing" id="spacing" class="input__get hover transition" value="35">
+                <input type="number" name="spacing" id="spacing" class="input__get hover transition" min="10" max="50" value="35">
             </section>
             <!--------------------------------------- INTERLINEADO -->
             <section>
