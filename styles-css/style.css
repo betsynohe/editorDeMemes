@@ -420,6 +420,7 @@ footer{
     .panels {
         display: none;
         width: 100%;
+        max-width: 100%;
     }
     #button__download {
         padding: 12px;
